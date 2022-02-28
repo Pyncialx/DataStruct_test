@@ -163,10 +163,8 @@ int *list_Shuffle (doubly_node_t **head,int number_of_time_to_shuffle_item)
 {
     
     int list_size = doubly_list_get_size(head);
-    printf("list size: %d\n", list_size);
 
     doubly_node_t *item_to_insert = NULL;
-    printf("entro in shuffle\n");
     /* 
     random int between 0 and value-1 -- Example int r = rand() % 20 [random is between 0 - 19]
     int r = rand() % value;
@@ -177,25 +175,14 @@ int *list_Shuffle (doubly_node_t **head,int number_of_time_to_shuffle_item)
        item_to_insert =list_pop(head);   //rimuovo quindi il numero degli item in lista cambia
        list_size = doubly_list_get_size(head);
        int index_where_insert_item = rand() % (list_size);
-       //printf("sono nel for all'iterazione DOPO RAND: %d\n", index_where_insert_item);
-       //printf("sono nel for all'iterazione DOPO POP: %d\n", i);
 
        doubly_node_t *item_pos_afther = get_item_with_index(head,index_where_insert_item); //in questo metodo mi riconto la lista, puo' capitare che cerco di inserire l'item
                                                                                                     //in un punto fuori dalla lista.
-       //printf("sono nel for all'iterazione PRENDO ITEM CON INDEX: %d\n", i);
 
 
        list_insert_afther(item_pos_afther,item_to_insert);
    }
    
-    /*random uno della lista -> remove
-    doubly_list_node node_to_swap_one = remove(blabla);
-    list append(problem of ripetute cicle) or list insert (found a new random where to insert item)
-
-
-    //fai un ciclo per un numero di volte richiesto quindi nella signature
-    
-    */
    return 0;
 }
 item_t *destroy_item(item_t *item_to_destroy)
