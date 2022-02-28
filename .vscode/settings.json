@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "stdlib.h": "c",
+        "doubly_test.h": "c",
+        "stdio.h": "c"
+    }
+}
