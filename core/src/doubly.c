@@ -139,7 +139,6 @@ int doubly_list_get_size(doubly_node_t **head)
         counter++;
         current_node = current_node->next;
     }
-    //printf("size of the struct is %d\n", counter);
     return counter;
 }
 doubly_node_t *get_item_with_index(doubly_node_t **list, int index)
@@ -170,16 +169,13 @@ int *list_Shuffle (doubly_node_t **head,int number_of_time_to_shuffle_item)
     random int between 0 and value-1 -- Example int r = rand() % 20 [random is between 0 - 19]
     int r = rand() % value;
     */
-   for (size_t i = 0; i < number_of_time_to_shuffle_item; i++)    //puo' prendere l'ultimo della lista
+   for (size_t i = 0; i < number_of_time_to_shuffle_item; i++) 
    {
-       /* code */
-       item_to_shuffle =list_pop(head);   //rimuovo quindi il numero degli item in lista cambia
+       item_to_shuffle =list_pop(head);   //removing an item, so the number of elements in the list change!
        list_size = doubly_list_get_size(head);
        int index_where_insert_item = rand() % (list_size);
 
-       item_pos_afther = get_item_with_index(head,index_where_insert_item); //in questo metodo mi riconto la lista, puo' capitare che cerco di inserire l'item
-                                                                                                    //in un punto fuori dalla lista.
-
+       item_pos_afther = get_item_with_index(head,index_where_insert_item); 
 
        list_insert_afther(item_pos_afther,item_to_shuffle);
    }
