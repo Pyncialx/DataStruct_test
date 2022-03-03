@@ -18,8 +18,8 @@ typedef struct int_item
 item_t *int_item_new(const int *num);
 doubly_node_t *doubly_list_append(doubly_node_t **head, doubly_node_t *item);
 doubly_node_t *list_get_tail(doubly_node_t **head);
-item_t *list_pop(item_t **head);
-item_t *doubly_list_remove(item_t **head, item_t *item);
+doubly_node_t *list_pop(doubly_node_t **head);
+doubly_node_t *doubly_list_remove(doubly_node_t **head, doubly_node_t *item);
 int *list_insert_afther(doubly_node_t *item, doubly_node_t *item_to_insert);
 int *list_insert_before(doubly_node_t **head,doubly_node_t *item, doubly_node_t *item_to_insert);
 int doubly_list_get_size (doubly_node_t **head);

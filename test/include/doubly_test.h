@@ -73,7 +73,7 @@ CLOVE_TEST(DOUBLY_CHECKPOP_EMPTYLIST)
 {
     item_t *list= NULL;
     
-    item_t *pop = list_pop(&list);
+    item_t *pop = list_pop((doubly_node_t**)&list);
     
     CLOVE_NULL(pop);
 }
@@ -92,7 +92,7 @@ CLOVE_TEST(DOUBLY_CHECKPOP)
     list_append_cast(&list,item2);
     list_append_cast(&list,item3);
 
-    item_t *pop = list_pop(&list);
+    item_t *pop = list_pop((doubly_node_t**)&list);
     
     CLOVE_PTR_EQ(pop, item1);
     CLOVE_INT_EQ(pop->num, item1->num);
@@ -116,7 +116,7 @@ CLOVE_TEST(DOUBLY_CHECKREMOVE_SPECIFICITEM)
     list_append_cast(&list,item2);
     list_append_cast(&list,item3);
 
-    item_t *removedItem = doubly_list_remove(list,item2);
+    item_t *removedItem = doubly_list_remove((doubly_node_t**)&list,(doubly_node_t*)item2);
 
     CLOVE_PTR_EQ(item2, removedItem);
     CLOVE_INT_EQ((int)(item2->num), (int)(removedItem->num));
@@ -143,7 +143,7 @@ CLOVE_TEST(DOUBLY_CHECKREMOVE_FIRSTITEM)
     list_append_cast(&list,item2);
     list_append_cast(&list,item3);
 
-    item_t *removedItem = doubly_list_remove(list,item1);
+    item_t *removedItem = doubly_list_remove((doubly_node_t**)&list,(doubly_node_t*)item1);
 
     CLOVE_PTR_EQ(item1, removedItem);
     CLOVE_INT_EQ((int)(item1->num), (int)(removedItem->num));
@@ -169,7 +169,7 @@ CLOVE_TEST(DOUBLY_CHECKREMOVE_LASTITEM)
     list_append_cast(&list,item2);
     list_append_cast(&list,item3);
 
-    item_t *removedItem = doubly_list_remove(list,item3);
+    item_t *removedItem = doubly_list_remove((doubly_node_t**)&list,(doubly_node_t*)item3);
 
     CLOVE_PTR_EQ(item3, removedItem);
     CLOVE_INT_EQ((int)(item3->num), (int)(removedItem->num));
